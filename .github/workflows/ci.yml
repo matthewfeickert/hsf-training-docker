@@ -52,9 +52,14 @@ jobs:
     #   run: |
     #     make lesson-check-all
 
+    # - name: Build the website
+    #   run: |
+    #     make --always-make site
+    #     ls -lhtra
+
     - name: Build the website
       run: |
-        make --always-make site
+        bundle exec rake build
         ls -lhtra
 
     - name: Deploy Jupyter book to GitHub pages
