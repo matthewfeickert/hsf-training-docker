@@ -22,9 +22,9 @@ jobs:
         python -m pip install --upgrade pip setuptools wheel
         python -m pip install --no-cache-dir -r requirements.txt
 
-    - name: Verify lesson
-      run: |
-        make lesson-check-all
+    # - name: Verify lesson
+    #   run: |
+    #     make lesson-check-all
 
     - name: Build the website
       run: |
