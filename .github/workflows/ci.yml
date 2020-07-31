@@ -60,8 +60,13 @@ jobs:
 
     - name: Build the website
       run: |
-        bundle exec rake build
+        make site
         ls -lhtra
+
+    # - name: Build the website
+    #   run: |
+    #     bundle exec rake build
+    #     ls -lhtra
 
     - name: Deploy Jupyter book to GitHub pages
       if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
