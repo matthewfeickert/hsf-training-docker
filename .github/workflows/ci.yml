@@ -22,13 +22,13 @@ jobs:
         python -m pip install --upgrade pip setuptools wheel
         python -m pip install --no-cache-dir -r requirements.txt
 
-    # - name: Restore bundle cache
-    #   uses: actions/cache@v1
-    #   with:
-    #     path: vendor/bundle
-    #     key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-gems-
+    - name: Restore bundle cache
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
 
     - uses: actions/setup-ruby@v1
       with:
@@ -39,6 +39,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install libxslt-dev libxml2-dev
         gem install bundler
+        gem install json kramdown jekyll
 
     - name: Bundle install
       run: |
